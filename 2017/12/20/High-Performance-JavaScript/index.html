@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://lizuoxing.com/2017/12/20/High-Performance-JavaScript/index.html">
 <meta property="og:site_name" content="李作兴个人博客">
 <meta property="og:description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
-<meta property="og:updated_time" content="2017-12-20T14:25:27.913Z">
+<meta property="og:updated_time" content="2017-12-20T14:31:15.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高性能JavaScript系列之脚本的加载与执行(1)">
 <meta name="twitter:description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
@@ -170,6 +170,7 @@
 <p><strong>说明</strong>：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。  </p>
 </blockquote>
 <h2 id="1-脚本位置"><a href="#1-脚本位置" class="headerlink" title="1 脚本位置"></a>1 脚本位置</h2><p><strong>脚本位置</strong>：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载的影响；</p>
+<a id="more"></a>
 <h2 id="2-组织脚本"><a href="#2-组织脚本" class="headerlink" title="2 组织脚本"></a>2 组织脚本</h2><p><strong>组织脚本</strong>：浏览器在解析HTML过程中每遇见一个script标签，都会因为脚本的执行而导致一定的延时；因此最小化延迟时间能提高页面的整体新能；对于外链JavaScript脚本文件，考虑到http请求的开销，下载4个25KB的文件比下载1个100KB的文件更快，因此，减少页面外链接脚本的数量能改善页面的性能；</p>
 <h2 id="3-无阻塞脚本"><a href="#3-无阻塞脚本" class="headerlink" title="3 无阻塞脚本"></a>3 无阻塞脚本</h2><p><strong>脚本</strong>：减少JavaScript文件的大小并限制HTTP请求的次数，只是构建快速响应web应用的第一步；尽管下载较大的耽搁脚本产生一次http请求，却会锁死浏览器一大段时间；为了避免这种情况，逐步向页面中加载JavaScript文件，这样做在某种程度上不会阻塞浏览器；无阻塞脚本的秘诀在于在浏览器加载完毕之后再加载JavaScript文件，采用专业术语来讲，这意味着在window对象的load事件触发后再加载JavaScript文件；</p>
 <p><strong>defer与async</strong>：defer和asyn时无阻塞脚本加载方式，相同点是两者都采用并行下载，却别是defer需要等到页面完成后才会执行，而async是加载完成自动执行；</p>
