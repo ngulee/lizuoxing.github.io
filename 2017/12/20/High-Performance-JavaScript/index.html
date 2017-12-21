@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://lizuoxing.com/2017/12/20/High-Performance-JavaScript/index.html">
 <meta property="og:site_name" content="李作兴个人博客">
 <meta property="og:description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
-<meta property="og:updated_time" content="2017-12-20T14:31:15.334Z">
+<meta property="og:updated_time" content="2017-12-21T02:32:16.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高性能JavaScript系列之脚本的加载与执行(1)">
 <meta name="twitter:description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
@@ -176,7 +176,7 @@
 <p><strong>defer与async</strong>：defer和asyn时无阻塞脚本加载方式，相同点是两者都采用并行下载，却别是defer需要等到页面完成后才会执行，而async是加载完成自动执行；</p>
 <p><strong>延迟脚本</strong>：HTML4为script标签拓展了一个defer属性，该属性表明标签所含脚本不会修改DOM，带有defer属性的script标签可以放在文档的任何位置；，目前，所有主流浏览器都已支持该属性；注意，该属性只有在src属性被声明时才有效；</p>
 <pre><code> &lt;script src=&quot;./js/demo.js&quot; type=&quot;text/javascript&quot; defer&gt;
-    //该脚本输出一个alert(&quot;defer&quot;);
+     //该脚本输出一个alert(&quot;defer&quot;);
  &lt;/script&gt;
 
  &lt;script &gt;
