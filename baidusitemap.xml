@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+    
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript1.html</loc>
+    <lastmod>2017-12-23T04:39:01.168Z</lastmod>
+    <data>
+        <display>
+        <title>高性能JavaScript系列之DOM编程</title>
+        <pubTime>2017-12-23T04:29:34.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>Javascript性能</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript.html</loc>
+    <lastmod>2017-12-21T04:21:14.264Z</lastmod>
+    <data>
+        <display>
+        <title>高性能JavaScript系列之脚本的加载与执行</title>
+        <pubTime>2017-12-20T13:12:05.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>Javascript性能</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lizuoxing.com/hello-world.html</loc>
+    <lastmod>2017-12-20T06:10:45.862Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-12-20T06:10:45.862Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>

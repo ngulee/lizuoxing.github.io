@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://lizuoxing.com">
-  <title>Archives | 李作兴个人博客</title>
+  <title>高性能JavaScript系列之脚本的加载与执行 | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="李作兴个人博客">
-<meta property="og:url" content="http://lizuoxing.com/archives/index.html">
+  <meta name="description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
+<meta name="keywords" content="前端,Javascript性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能JavaScript系列之脚本的加载与执行">
+<meta property="og:url" content="http://lizuoxing.com/High-Performance-JavaScript.html">
 <meta property="og:site_name" content="李作兴个人博客">
+<meta property="og:description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
+<meta property="og:updated_time" content="2017-12-21T04:21:14.264Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李作兴个人博客">
+<meta name="twitter:title" content="高性能JavaScript系列之脚本的加载与执行">
+<meta name="twitter:description" content="说明：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。    1 脚本位置脚本位置：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -141,78 +146,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-High-Performance-JavaScript" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/High-Performance-JavaScript1.html" class="archive-article-date">
-  	<time datetime="2017-12-23T04:29:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/High-Performance-JavaScript1.html">高性能JavaScript系列之DOM编程</a>
+    <h1 class="article-title" itemprop="name">
+      高性能JavaScript系列之脚本的加载与执行
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javascript性能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/High-Performance-JavaScript.html" class="archive-article-date">
+        
+        <a href="/High-Performance-JavaScript.html" class="archive-article-date">
   	<time datetime="2017-12-20T13:12:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/High-Performance-JavaScript.html">高性能JavaScript系列之脚本的加载与执行</a>
-    </h1>
-  
+        
+        
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>说明</strong>：该笔记为《高性能JavaScript》读书笔记——高性能JavaScript之XXXX系列，其中包含了我阅读该书时认为比较重要的部分，为了防止自己以后忘记的时候能够及时找到，同时也能与各位网友共享，如有错误，请不吝赐教。  </p>
+</blockquote>
+<h2 id="1-脚本位置"><a href="#1-脚本位置" class="headerlink" title="1 脚本位置"></a>1 脚本位置</h2><p><strong>脚本位置</strong>：由于script脚本在加载过程中会阻塞其他资源的加载，因此推荐将script脚本尽可能放在boby标签的底部，以尽量减少对整个页面其他资源下载的影响；</p>
+<a id="more"></a>
+<h2 id="2-组织脚本"><a href="#2-组织脚本" class="headerlink" title="2 组织脚本"></a>2 组织脚本</h2><p><strong>组织脚本</strong>：浏览器在解析HTML过程中每遇见一个script标签，都会因为脚本的执行而导致一定的延时；因此最小化延迟时间能提高页面的整体新能；对于外链JavaScript脚本文件，考虑到http请求的开销，下载4个25KB的文件比下载1个100KB的文件更快，因此，减少页面外链接脚本的数量能改善页面的性能；</p>
+<h2 id="3-无阻塞脚本"><a href="#3-无阻塞脚本" class="headerlink" title="3 无阻塞脚本"></a>3 无阻塞脚本</h2><p><strong>脚本</strong>：减少JavaScript文件的大小并限制HTTP请求的次数，只是构建快速响应web应用的第一步；尽管下载较大的耽搁脚本产生一次http请求，却会锁死浏览器一大段时间；为了避免这种情况，逐步向页面中加载JavaScript文件，这样做在某种程度上不会阻塞浏览器；无阻塞脚本的秘诀在于在浏览器加载完毕之后再加载JavaScript文件，采用专业术语来讲，这意味着在window对象的load事件触发后再加载JavaScript文件；</p>
+<p><strong>defer与async</strong>：defer和asyn时无阻塞脚本加载方式，相同点是两者都采用并行下载，却别是defer需要等到页面完成后才会执行，而async是加载完成自动执行；</p>
+<p><strong>延迟脚本</strong>：HTML4为script标签拓展了一个defer属性，该属性表明标签所含脚本不会修改DOM，带有defer属性的script标签可以放在文档的任何位置；，目前，所有主流浏览器都已支持该属性；注意，该属性只有在src属性被声明时才有效；</p>
+<pre><code> &lt;script src=&quot;./js/demo.js&quot; type=&quot;text/javascript&quot; defer&gt;
+     //该脚本输出一个alert(&quot;defer&quot;);
+ &lt;/script&gt;
 
-        <div class="article-info info-on-right">
-          
+ &lt;script &gt;
+    alert(&quot;script&quot;);
+ &lt;/script&gt;
+
+ &lt;script &gt;
+    window.onload = function() {
+      alert(&quot;onload&quot;);
+    }
+&lt;/script&gt;
+</code></pre><p>对于不支持defer属性的浏览器，会输出defer、script、onload；对于支持defer属性的浏览器，会弹出script、defer、onload；</p>
+<p> <strong>动态脚本</strong>：动态添加的script标签，这种技术的重点在于无论何时启动下载，文件的下载和执行都不会阻塞页面的其他进程；通常来讲，动态创建的script标签调价到head中比添加到body保险，尤其是在页面加载过程中执行代码更是如此；动态加载脚本的标准与IE特有方法封装如下：</p>
+<pre><code>function loadScript(url,calback) {
+  var script = document.crateElement(&quot;script&quot;);
+  script.type = &quot;text/javascript&quot;;
+  if(script.readyState) {//for IE
+    script.onreadyStateChange = function() {
+      if(script.readyState == &quot;loaded&quot; || script.readyState == &quot;complete&quot;) {
+        script.onreadyStateChange = null;
+        script.src = url;
+      }
+      calback();
+    }
+  }else {
+    script.onlaod = function() {
+      calback();
+    }
+    script.src = url;
+  }
+  document.getElementsByTagName(&quot;head&quot;)[0].appendChild(script);
+}
+</code></pre><p>如果想动态加载多个JS文件，可以嵌套调用loadScript函数：</p>
+<pre><code>loadScript(&quot;file1.js&quot;, function() {
+  loadScript(&quot;file2.js&quot;,function() {
+    loadScript(&quot;file3.js&quot;,function() {
+      alert(&quot;All file is loaded&quot;);
+    })
+  })
+})
+</code></pre><p>如果加载多个JS文件的顺序很重要，更好的办法是按照顺序把他们合并为一个JS文件进行加载；<br><strong>动态加载脚本技术凭借它其跨浏览器兼容性和易用优势，已经成为最常用的无阻塞加载解决</strong></p>
+<p><strong>XMLHttpRequest脚本注入</strong>：无阻塞加载JS文件的另一种方式是通过XHR对象也可以在页面中动态注入脚本；</p>
+<pre><code>function loadScriptByXHR(url) {
+    //创建跨浏览器XHR对象
+    function createXHR() {
+      if( typeof XMLHttpRequest != &quot;undefined&quot;) {
+        createXHR = function() {
+          return new XMLHttpRequest();
+        }
+      }else if( typeof ActiveXObject !=&quot;undefined&quot;) {
+        createXHR = function() {
+          if (typeof arguments.callee.activeXString != &quot;string&quot;) {
+            var versions = [&quot;MSXML2.XMLHttp.6.0&quot;,&quot;MSXML2.XMLHttp.3.0&quot;,&quot;MSXML2.XMLHttp&quot;],
+        len,
+        i;
+            for(i = 0, len = versions.length; i &lt; len; i++) {
+              try{
+                new ActiveXObject(versions[i]);
+                arguments.callee.activeXString = versions[i];
+                break;
+              }catch(err) {
+                //跳过
+              }
+            }
+          }
+          return ActiveXObject(arguments.callee.activeXString); 
+        } 
+      }else {
+        createXHR = function() {
+          throw new Error(&quot;No XHR object available.&quot;);
+        } 
+      }
+      return createXHR();
+    }
+
+    //通过XHR对象动态注入脚本
+    var xhr = createXHR();
+    xhr.open(&quot;get&quot;, url, true);
+    xhr.onreadyStateChange = function() {
+        if(xhr.readyState == 4) {
+            if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) {
+             var script = document.createElement(&quot;script&quot;);
+                script.type = &quot;text/javascript&quot;;
+                script.text = xhr.responseText;
+                document.body.appendChild(script);
+            }
+        }
+    }
+    xhr.send(null);
+}
+</code></pre><p><strong>主要优点</strong>：你可以下载JS文件，但不立即执行(由于代码是在script标签之外返回的，因此它下载后不会自动执行)，这使得你可以把脚本的执行推迟到你准备好的时候；另一个优点是同样的代码在所有主流浏览器中都能正常运行；<br><strong>主要缺点</strong>：这种方法的局限是JavaScript文件必须与所请求的页面处于相同的域，这意味着JavaScript文件不能从CDN上下载，因此大型web应用一般不会使用XHR对象动态注入脚本技术；</p>
+<p><strong>3.6 推荐的无阻塞模式</strong>：<br>向页面中加载大量JS脚本的推荐做法只需要两步：先添加动态添加所需要的代码，然后加载初始化页面所需要的代码；<br><strong>方法1</strong>：</p>
+<pre><code>&lt;script src=&quot;loader.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; &gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; &gt;
+    loadScript(&quot;the-rest.js&quot;,function() {
+        Application.init();
+    })
+&lt;/script&gt;
+</code></pre><p><strong>方法2</strong>：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; &gt;
+    function loadScript(url,calback) {
+    var script = document.crateElement(&quot;script&quot;);
+    script.type = &quot;text/javascript&quot;;
+    if(script.readyState) {//for IE
+        script.onreadyStateChange = function() {
+        if(script.readyState == &quot;loaded&quot; || script.readyState == &quot;complete&quot;) {
+            script.onreadyStateChange = null;
+            script.src = url;
+        }
+        calback();
+        }
+    }else {
+        script.onlaod = function() {
+        calback();
+        }
+     script.src = url;
+    }
+        document.getElementsByTagName(&quot;head&quot;)[0].appendChild(script);
+    } 
+    loadScript(&quot;the-rest.js&quot;,function() {
+        Application.init();
+    })
+&lt;/script&gt;
+</code></pre><p><strong>*注意*</strong>：如果采用第二种方法，建议把初始化代码压缩到最小；</p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><p>减少JS脚本加载对性能影响的方法有：</p>
+<ul>
+<li>将所有script标签放在body底部，这能确保在脚本执行之前页面已经渲染完毕；</li>
+<li>合并脚本。页面中脚本的数量越少，加载脚本的速度越快，响应更加迅速，无论内嵌脚本还是外链JS文件；</li>
+<li>有多种无阻塞下载JavaScript的方法<br>1.1 使用script标签的defer属性<br>1.2 使用动态创建的script元素来下载并执行代码；<br>1.3 使用XHR对象下载JS代码并注入页面中；</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,46 +335,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://lizuoxing.com/High-Performance-JavaScript.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hello-world.html" class="archive-article-date">
-  	<time datetime="2017-12-20T06:10:45.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/High-Performance-JavaScript1.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          高性能JavaScript系列之DOM编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/hello-world.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hello-world.html">Hello World</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -295,8 +471,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
