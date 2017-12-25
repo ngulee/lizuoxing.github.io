@@ -7,14 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="baidu-site-verification" content="x4ngpLVdak" />
   <link rel="dns-prefetch" href="http://lizuoxing.com">
-  <title>Archives: 2017 | 李作兴个人博客</title>
+  <title>高性能JavaScript系列之字符串(4) | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="李作兴个人博客">
-<meta property="og:url" content="http://lizuoxing.com/archives/2017/index.html">
+  <meta name="description" content="几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越来越多的类似任务会在浏览器中完成。在JavaScript中，正则表达式时必不可少的，它的重要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能JavaScript系列之字符串(4)">
+<meta property="og:url" content="http://lizuoxing.com/High-Performance-JavaScript3.html">
 <meta property="og:site_name" content="李作兴个人博客">
+<meta property="og:description" content="几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越来越多的类似任务会在浏览器中完成。在JavaScript中，正则表达式时必不可少的，它的重要">
+<meta property="og:updated_time" content="2017-12-25T07:33:52.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李作兴个人博客">
+<meta name="twitter:title" content="高性能JavaScript系列之字符串(4)">
+<meta name="twitter:description" content="几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越来越多的类似任务会在浏览器中完成。在JavaScript中，正则表达式时必不可少的，它的重要">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -142,202 +146,186 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-High-Performance-JavaScript3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      高性能JavaScript系列之字符串(4)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/High-Performance-JavaScript3.html" class="archive-article-date">
+
+        
+        <a href="/High-Performance-JavaScript3.html" class="archive-article-date">
   	<time datetime="2017-12-25T07:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/High-Performance-JavaScript3.html">高性能JavaScript系列之字符串(4)</a>
-    </h1>
-  
+        
+        
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越来越多的类似任务会在浏览器中完成。</em><br><em>在JavaScript中，正则表达式时必不可少的，它的重要性远远超过哪些琐碎的字符串处理。</em><br><em>By Steven Levithan</em> </p>
+</blockquote>
+<a id="more"></a>
+<h3 id="1-字符串连接"><a href="#1-字符串连接" class="headerlink" title="1 字符串连接"></a>1 字符串连接</h3><p> 当需要连接的字符串数量较少时，可以采用以下方法实现：  </p>
+<ul>
+<li>The + operator模式：str = “a” + “b” + “c”;</li>
+<li>The += operator模式：str = “a”;str += “b”;str += “c;</li>
+<li>Array.join()方法：str = [“a”,”b”,”c”].join(“”);</li>
+<li>String.concat()方法：str = “a”;str = str.concat(“b”,”c”);  </li>
+</ul>
+<h3 id="2-加-和加等-操作符"><a href="#2-加-和加等-操作符" class="headerlink" title="2 加(+)和加等(+=)操作符"></a>2 加(+)和加等(+=)操作符</h3><p> 随着要合并的字符串的长度和数量增加，有一些方法开始展现出优势，首先看一个栗子(该栗子只能看，不能吃)，这是一个连接字符串的常用方式：   </p>
+<pre><code>var str = &quot;&quot;;
+str +=&quot;one&quot; + &quot;two&quot;;  
+</code></pre><p> 次代码运行时会经历四个步骤：</p>
+<ol>
+<li>首先，在内存中穿件一个临时字符串；</li>
+<li>连接后的字符串\”onetwo\”被赋值给该临时字符串；</li>
+<li>临时字符串与str当前的值连接；</li>
+<li>连接后的字符串赋值给str；    </li>
+</ol>
+<p>以下代码用两两行语句直接附加内容给str，葱而避免了产生临时字符串：  </p>
+<pre><code>var str = &quot;&quot;;
+str += &quot;one&quot;;
+str += &quot;one&quot; + &quot;two&quot;;  
+</code></pre><p>或：  </p>
+<pre><code>var str= &quot;&quot;;
+str += &quot;one&quot; + &quot;two&quot;;    
+</code></pre><p>在大多数浏览器中，这样做能够提速10%-40%，但是对于IE7以及更低版本的IE浏览不适用，这是由于IE执行连接操作的底层机制决定的。</p>
+<h3 id="3-数组项合并"><a href="#3-数组项合并" class="headerlink" title="3 数组项合并"></a>3 数组项合并</h3><p>数组项合并字符串方法：  </p>
+<pre><code>[&quot;str1&quot;,&quot;str2&quot;,...,&quot;strn&quot;].join(&quot;&quot;)
+</code></pre><p>在大多数浏览器中，数组项合并比其他字符串连接符更慢，但事实上，它却是IE7级更早版本浏览器中合并大量字符串的唯一高效途径，这也算是一种补偿；  </p>
+<h3 id="4-字符串concat方法"><a href="#4-字符串concat方法" class="headerlink" title="4 字符串concat方法"></a>4 字符串concat方法</h3><p>字符串的原生方法concat能接收任意数量的参数，并将每一个参数附加到被调用的字符串上。  </p>
+<pre><code>//附加一个字符串
+str = str.concat(s1);
 
-        <div class="article-info info-on-right">
-          
-          
+//附加多个字符串
+str = str.concat(s1,s2,...,sn);
 
+//如果传递一个数组，可以附加数组中的所有字符串
+str = String.prototype.concat.apply(str,[s1,s2,...,sn]);  
+</code></pre><p>遗憾的是，在大多数情况下，concat方法要比+和+=操作稍慢。  </p>
+<h3 id="5-结论"><a href="#5-结论" class="headerlink" title="5 结论"></a>5 结论</h3><p>密集地字符串操作可能会产生严重的性能障碍，可以通过以下方法来避免常见的陷阱：</p>
+<ul>
+<li>当连接数量巨大或内存巨大的字符串时，数组项合并时唯一在IE7及更早版本浏览器中性能合理的方法；</li>
+<li>如果不需要考虑IE7以及更早版本的性能，数组项合并时最慢的字符串连接方法之一，此时，可以推荐使用简单的+或+=操作符代替，避免不必要的中间字符串。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://lizuoxing.com/High-Performance-JavaScript3.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/High-Performance-JavaScript2.html" class="archive-article-date">
-  	<time datetime="2017-12-24T12:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/High-Performance-JavaScript2.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">高性能JavaScript系列之算法和流程(3)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/High-Performance-JavaScript2.html">高性能JavaScript系列之算法和流程(3)</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javascript性能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/High-Performance-JavaScript1.html" class="archive-article-date">
-  	<time datetime="2017-12-23T04:29:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/High-Performance-JavaScript1.html">高性能JavaScript系列之DOM编程(2)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javascript性能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/High-Performance-JavaScript.html" class="archive-article-date">
-  	<time datetime="2017-12-20T13:12:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/High-Performance-JavaScript.html">高性能JavaScript系列之脚本的加载与执行(1)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javascript性能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hello-world.html" class="archive-article-date">
-  	<time datetime="2017-12-20T06:10:45.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hello-world.html">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -365,8 +353,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

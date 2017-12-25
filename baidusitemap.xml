@@ -4,6 +4,40 @@
 
     
   <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript3.html</loc>
+    <lastmod>2017-12-25T07:33:52.883Z</lastmod>
+    <data>
+        <display>
+        <title>高性能JavaScript系列之字符串(4)</title>
+        <pubTime>2017-12-25T07:19:28.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript1.html</loc>
+    <lastmod>2017-12-24T12:44:20.709Z</lastmod>
+    <data>
+        <display>
+        <title>高性能JavaScript系列之DOM编程(2)</title>
+        <pubTime>2017-12-23T04:29:34.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>Javascript性能</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lizuoxing.com/High-Performance-JavaScript2.html</loc>
     <lastmod>2017-12-24T12:39:51.302Z</lastmod>
     <data>
@@ -41,25 +75,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript1.html</loc>
-    <lastmod>2017-12-23T04:39:01.168Z</lastmod>
-    <data>
-        <display>
-        <title>高性能JavaScript系列之DOM编程</title>
-        <pubTime>2017-12-23T04:29:34.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>Javascript性能</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://lizuoxing.com/hello-world.html</loc>
