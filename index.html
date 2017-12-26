@@ -144,6 +144,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Block-Formatting-Contex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Block-Formatting-Contex.html">块级格式上下文-BFC</a>
+    </h1>
+  
+
+        
+        <a href="/Block-Formatting-Contex.html" class="archive-article-date">
+  	<time datetime="2017-12-26T06:52:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-26</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h2><p>Block Formatting Contex，简称BFC，web是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面的元素，反之也是如此。</p>
+<h2 id="2-何时会生成BFC"><a href="#2-何时会生成BFC" class="headerlink" title="2 何时会生成BFC"></a>2 何时会生成BFC</h2><p>首先，我们来看看<a href="https://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="noopener"><strong>W3C</strong></a>对BFC的描述：</p>
+<blockquote>
+<p>Floats, absolutely positioned elements, block containers (such as inline-blocks, table-cells, and table-captions) that are not block boxes, and block boxes with ‘overflow’ other than ‘visible’ (except when that value has been propagated to the viewport) establish new block formatting contexts for their contents.  </p>
+</blockquote>
+<p>我翻译一下，并总结如下(英语水平有限，翻译不恰当之处还请各位及时指出):  </p>
+<ol>
+<li>float属性不为none的元素；</li>
+<li>position为绝对定位（absolute或fixed）的元素；</li>
+<li>非块级盒子的块级容器,例如display为inline-block, table-cell, table-caption, flex, inline-flex</li>
+<li>overflow不为visible</li>
+</ol>
+<p>以上情况下，会生成BFC。  </p>
+<h2 id="3-BFC的布局规则"><a href="#3-BFC的布局规则" class="headerlink" title="3 BFC的布局规则"></a>3 BFC的布局规则</h2><p>同样，我们先看一下<a href="https://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="noopener"><strong>W3C</strong></a>对其的描述：</p>
+<blockquote>
+<p>In a block formatting context, boxes are laid out one after the other, vertically, beginning at the top of a containing block. The vertical distance between two sibling boxes is determined by the ‘margin’ properties. Vertical margins between adjacent block-level boxes in a block formatting context collapse.<br>翻译并总结如下：</p>
+<ol>
+<li>在BFC中，内部的Box会在垂直方向，一个接一个地放置</li>
+<li>Box垂直方向的距离由margin决定。同属一个BFC的相邻块级盒子的垂直margin会发生合并（<a href="https://www.w3.org/TR/CSS2/box.html#collapsing-margins" target="_blank" rel="noopener"><strong>Collapse</strong></a>）</li>
+<li>每个元素盒子的左外边缘（即Margin box的左边）和包含块的左边缘（即Border box的左边）相接触（对于从右往左的排版则相反，是右边接触)。即使存在浮动也是如此</li>
+<li>BFC的区域不会与float box重叠</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+</ol>
+</blockquote>
+<h2 id="4-BFC的用途"><a href="#4-BFC的用途" class="headerlink" title="4 BFC的用途"></a>4 BFC的用途</h2><h4 id="4-1-使用BFC清除浮动"><a href="#4-1-使用BFC清除浮动" class="headerlink" title="4.1 使用BFC清除浮动"></a>4.1 使用BFC清除浮动</h4><p>当一个容器盒子中只有浮动元素时，由于无法获取浮动元素的高度，因此，容器盒子的的高度为零。但是，实际开发中，这种情况不是我们想要的，所以需要清除浮动。当一个元素生成BFC时，其内部的浮动元素的高度也会被计算在内，从而达到清除浮动的目的。好，我们来举一个栗子。<br>html代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"floatContainer"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码如下:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.floatContainer</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: pink;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">background</span>: red;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">background</span>: orange;</span><br><span class="line">	<span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>点击<a href="http://htmlpreview.github.io/?https://github.com/ngulee/Tools/blob/master/bfc/float/index.html" target="_blank" rel="noopener"><strong>预览</strong></a>浮动清除效果。</p>
+<h4 id="4-2-使用BFC防止margin合并"><a href="#4-2-使用BFC防止margin合并" class="headerlink" title="4.2 使用BFC防止margin合并"></a>4.2 使用BFC防止margin合并</h4><p>同一个BFC盒子中，Box垂直方向的距离由margin决定。同属一个BFC的相邻块级盒子的垂直margin会发生合并（<a href="https://www.w3.org/TR/CSS2/box.html#collapsing-margins" target="_blank" rel="noopener"><strong>Collapse</strong></a>）；<br>外边界合并栗子：<br>html代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div1</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: cadetblue;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.div2</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: coral;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">50px</span> <span class="number">0</span>;</span><br><span class="line">	<span class="comment">/* float: left; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>点击预览<a href="http://htmlpreview.github.io/?https://github.com/ngulee/Tools/blob/master/bfc/collapse/index.html" target="_blank" rel="noopener"><strong>效果</strong></a>，div1和div2之间的距离为100px;给div2添加一个 float: left，div1和div2之间的距离为150px，点击预览<a href="http://htmlpreview.github.io/?https://github.com/ngulee/Tools/blob/master/bfc/collapse/index1.html" target="_blank" rel="noopener"><strong>效果</strong></a>。</p>
+<h4 id="4-3-使用BFC构建两栏自适应布局"><a href="#4-3-使用BFC构建两栏自适应布局" class="headerlink" title="4.3 使用BFC构建两栏自适应布局"></a>4.3 使用BFC构建两栏自适应布局</h4><p>我们要一个左侧栏宽度固定，右侧内容区自适应的两栏布局，可以通过如下方法实现：<br>html代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span></span><br><span class="line">			aside</span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span><br><span class="line">			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><br><span class="line">			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><br><span class="line">			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><br><span class="line">			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><br><span class="line">			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.aside</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">background</span>: orange;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: pink;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>说明：aside浮动元素生成一个BFC，main元素通过overflow:hidden生成一个BFC，它不和aside浮动元素发生重叠，因此，可以实现两栏自适应布局。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Block-Formatting-Contex.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-High-Performance-JavaScript3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -645,6 +756,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
