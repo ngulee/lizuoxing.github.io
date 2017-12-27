@@ -1,3 +1,4 @@
+http://lizuoxing.com/creation-of-objexts.html
 http://lizuoxing.com/Block-Formatting-Contex.html
 http://lizuoxing.com/High-Performance-JavaScript3.html
 http://lizuoxing.com/High-Performance-JavaScript2.html
