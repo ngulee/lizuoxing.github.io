@@ -7,19 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="baidu-site-verification" content="x4ngpLVdak" />
   <link rel="dns-prefetch" href="http://lizuoxing.com">
-  <title>创建对象的五种方式 | 李作兴个人博客</title>
+  <title>Use-mongoDB-in-Webstorm | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerson (name, age, job) &amp;#123;  var obj = new Object">
-<meta name="keywords" content="前端,面向对对象">
+  <meta name="description" content="这里有一张图片">
 <meta property="og:type" content="article">
-<meta property="og:title" content="创建对象的五种方式">
-<meta property="og:url" content="http://lizuoxing.com/creation-of-objexts.html">
+<meta property="og:title" content="Use-mongoDB-in-Webstorm">
+<meta property="og:url" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerson (name, age, job) &amp;#123;  var obj = new Object">
-<meta property="og:updated_time" content="2017-12-27T05:43:25.481Z">
+<meta property="og:description" content="这里有一张图片">
+<meta property="og:updated_time" content="2017-12-28T13:13:41.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="创建对象的五种方式">
-<meta name="twitter:description" content="虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerson (name, age, job) &amp;#123;  var obj = new Object">
+<meta name="twitter:title" content="Use-mongoDB-in-Webstorm">
+<meta name="twitter:description" content="这里有一张图片">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -147,20 +146,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-creation-of-objexts" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Use-mongoDB-in-Webstorm" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      创建对象的五种方式
+      Use-mongoDB-in-Webstorm
     </h1>
   
 
         
-        <a href="/creation-of-objexts.html" class="archive-article-date">
-  	<time datetime="2017-12-26T12:22:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-26</time>
+        <a href="/Use-mongoDB-in-Webstorm.html" class="archive-article-date">
+  	<time datetime="2017-12-28T13:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
 </a>
         
         
@@ -172,44 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。</p>
-<h2 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1 工厂模式"></a>1 工厂模式</h2><p>在一个函数中封装对象的具体创建过程，如下所示<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreatePerson</span> (<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">  obj.name = name;</span><br><span class="line">  obj.age = age;</span><br><span class="line">  obj.job = job;</span><br><span class="line">  obj.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>然后，我们就可以利用CreatePerson创建任意多个对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = CreatePerson(<span class="string">'张三'</span>, <span class="number">23</span>, <span class="string">'工程师'</span>)</span><br><span class="line"><span class="keyword">var</span> person2 = CreatePerson(<span class="string">'李四'</span>, <span class="number">25</span>, <span class="string">'教师'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>工厂模式创建对象的思想是:在一个函数中，首先定义一个中间对象，然后为该中间对象设置属性和方法。<br>优点：工厂模式省去了创建对象的具体过程，实现了一个接口创建多个对象。<br>缺点：工厂模式虽然解决了创建多个相似对象的问题，但却没有解决对象识别的问题（即怎样知道一个对象的类型）。</p>
-<h2 id="2-构造函数模式"><a href="#2-构造函数模式" class="headerlink" title="2 构造函数模式"></a>2 构造函数模式</h2><p>我们可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法。例如，可以使用构造函数模式将前面的例子重写如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">functtion Person(name, age, job) &#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">  <span class="keyword">this</span>.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后，我们通过new操作符来创建新对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"李四"</span>, <span class="string">"28"</span>, <span class="string">"工程师"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"张三"</span>, <span class="string">"26"</span>, <span class="string">"教师"</span>);</span><br></pre></td></tr></table></figure></p>
-<p><strong>与工厂模式相比，有以下几个不同点</strong>：</p>
-<ul>
-<li>构造函数模式中，我们通过一个大写开头的函数名Person来表示一个人类构造函数，取代了工厂模式中的CreatePerson，函数名称更加简洁；</li>
-<li>没有显示创建对象；</li>
-<li>直接将属性和方法赋值给this；</li>
-<li>木有return语句；</li>
-</ul>
-<p><strong>在构造函数模式中，我们是通过new操作符来实现创建新对象实例的；new操作符的作用如下</strong>：</p>
-<ul>
-<li>创建一个新对象；</li>
-<li>将构造函数中的作用域赋值给新对象，因此，this也就指向了新对象；</li>
-<li>执行构造函数中的代码，为新对象添加属性和方法；</li>
-<li>返回该新对象</li>
-</ul>
-<p>每一个实例都有一个constructor属性，指向创建该实例的构造函数，因此：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1.constructor == person1.constructor <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<p>构造函数模式虽然解决了对象的识别问题，但是，对于person1和person2中的Hello方法，逻辑完全一样，但是，却不是同一个函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1.hello == person2.hello <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
-<p>然而，创建两个完相同的hello方法的确没有必要；况且有this对象在，根本不用在执行代码前就把函数绑定到特定对象上面。如何实现定义一次，所有实例都以使用，而且所有实例中的hello方法均为同一个方法呢？因此，原型模式诞生了。</p>
-<h2 id="3-原型模式"><a href="#3-原型模式" class="headerlink" title="3 原型模式"></a>3 原型模式</h2><p>我们创建的每个函数都有一个prototype（原型）属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。意思就是说，在原型对象中定义的属性和方法会被所有实例共享。因此，前面的实例可以改写为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  constrcutor: Person,</span><br><span class="line">  name: <span class="string">"张三"</span>,</span><br><span class="line">  age: <span class="string">"25"</span>,</span><br><span class="line">  job: <span class="string">"工程师"</span>,</span><br><span class="line">  hello () &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"hello"</span> + <span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure></p>
-<p>person1和person2两个实例中的Hello方法是同一个函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1.hello = person1.hello <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<p>优点： 原型模式成功解决了构造函数模式不能共享属性和方法的缺点；<br>缺点： 原型模式的最大问题是由其共享的本性所导致的。在原型对象中定义的属性和方法会被所有实例共享，对于方法而言，这是优点，但对于引用类型的属性而言，这是灾难，我们举个栗子，我们在Person的原型对象中添加一个值为引用类型的属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  constrcutor: Person,</span><br><span class="line">  name: <span class="string">"张三"</span>,</span><br><span class="line">  age: <span class="string">"25"</span>,</span><br><span class="line">  job: <span class="string">"工程师"</span>，</span><br><span class="line">  friends: [<span class="string">'王二'</span>, <span class="string">'麻子'</span>]</span><br><span class="line">  hello () &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"hello"</span> + <span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.friends.push(<span class="string">"李华"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>此时，我们却发现，person2中的friends属性也改变了！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person2.friends <span class="comment">// ['王二', '麻子', '李华']</span></span><br></pre></td></tr></table></figure></p>
-<p>friends的值是引用类型，person1.friends和person2.friends均指向同一个数组，因此，person1.friends的改变也会反映在person2.friends中。<br>而且，原型模式还有一个缺点，就是不能传递参数，原型模式创建的对象的属性都一样。那有没有一种模式，既能实现让所有实例都共享一些共有的属性和方法，又能让不同的实例保证有自己的私有属性和方法呢？答案是：肯定是有的，那就是构造函数模式和原型模式的组合模式。</p>
-<h2 id="4-构造函数模式和原型模式的组合模式"><a href="#4-构造函数模式和原型模式的组合模式" class="headerlink" title="4 构造函数模式和原型模式的组合模式"></a>4 构造函数模式和原型模式的组合模式</h2><p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参数；可谓是集两种模式之长。下面的代码重写了前面的例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">  <span class="keyword">this</span>.friends = [<span class="string">'王二'</span>, <span class="string">'麻子'</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  <span class="keyword">constructor</span>: Person,</span><br><span class="line">  hello () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello "</span> + <span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"李四"</span>, <span class="number">18</span>, <span class="string">"会计师"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"麻子"</span>, <span class="number">23</span>, <span class="string">"航天员"</span>);</span><br><span class="line"></span><br><span class="line">person1.hello = person2.hello <span class="comment">//true;</span></span><br><span class="line">person1.friends.push(<span class="string">"李华"</span>);</span><br><span class="line">person1.friends  <span class="comment">//['王二', '麻子', '李华'];</span></span><br><span class="line">person2.friends  <span class="comment">//['王二', '麻子'];</span></span><br></pre></td></tr></table></figure></p>
-<p>在这个例子中，实例属性都是在构造函数中定义的，而由所有实例共享的属性constructor和方法hello()则是在原型中定义的。而修改了person1.friends（向其中添加一个新字符串），并不会影响到person2.friends，因为它们分别引用了不同的数组。<br>通过构造函数模式和原型模式的组合模式创建对象，我们实现了对象公有方法的共享，同时又实现了不同实例拥有自己的私有属性，而且还能传递参数。<br>这种构造函数与原型混成的模式，是目前在ECMAScript 中使用最广泛、认同度最高的一种创建自定义类型的方法。可以说，这是用来定义引用类型的一种默认模式。</p>
-<h2 id="5-动态原型模式"><a href="#5-动态原型模式" class="headerlink" title="5 动态原型模式"></a>5 动态原型模式</h2><p>前面我们讲到了原型模式，那什么是动态原型模式呢？动态原型模式和原型模式有什么特点呢？我们先来看看下面这个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.hello != <span class="string">'function'</span>) &#123;</span><br><span class="line">    Person.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>动态原型模式和原型模式有两个明显的不同点：</p>
-<ul>
-<li>原型定义在构造函数里面；</li>
-<li>在初始化原型之前，先进行判断，看实例中是否已经存在hello这个函数，如果不存在，则初始化原型，如果存在，就无需初始化原型。这就是动态初始化原型对象。</li>
-</ul>
-<p>也就是说这里只在hello()方法不存在的情况下，才会将它添加到原型中。这段代码只会在初次调用构造函数时才会执行。此后，原型已经完成初始化，不需要再做什么修改了。不过要记住，这里对原型所做的修改，能够立即在所有实例中得到反映。因此，这种方法确实可以说非常完美。其中，if 语句检查的可以是初始化之后应该存在的任何属性或方法——不必用一大堆if 语句检查每个属性和每个方法；只要检查其中一个即可。对于采用这种模式创建的对象，还可以使用instanceof 操作符确定它的类型。</p>
+        <p>这里有一张<a href="Use-mongoDB-in-Webstorm/test.png">图片</a></p>
 
       
 
@@ -218,21 +180,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">面向对对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -283,7 +230,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://lizuoxing.com/creation-of-objexts.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://lizuoxing.com/Use-mongoDB-in-Webstorm.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -297,18 +244,9 @@
   
 <nav id="article-nav">
   
-    <a href="/Use-mongoDB-in-Webstorm.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Use-mongoDB-in-Webstorm
-        
-      </div>
-    </a>
   
-  
-    <a href="/Block-Formatting-Contex.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">块级格式上下文-BFC</div>
+    <a href="/creation-of-objexts.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">创建对象的五种方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
