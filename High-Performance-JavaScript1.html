@@ -9,17 +9,17 @@
   <link rel="dns-prefetch" href="http://lizuoxing.com">
   <title>高性能JavaScript系列之DOM编程(2) | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="\”两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上。\”">
+  <meta name="description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    \”两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上">
 <meta name="keywords" content="前端,Javascript性能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高性能JavaScript系列之DOM编程(2)">
 <meta property="og:url" content="http://lizuoxing.com/High-Performance-JavaScript1.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="\”两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上。\”">
-<meta property="og:updated_time" content="2017-12-24T12:44:20.709Z">
+<meta property="og:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    \”两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上">
+<meta property="og:updated_time" content="2017-12-29T13:58:26.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高性能JavaScript系列之DOM编程(2)">
-<meta name="twitter:description" content="\”两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上。\”">
+<meta name="twitter:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    \”两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -172,7 +172,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>\”<strong>两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上。</strong>\”</em><br><a id="more"></a></p>
+        <blockquote>
+<p>说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  </p>
+</blockquote>
+<p><em>\”<strong>两个两户独立的功能只要通过接口连接就会产生消耗；有个贴切的比喻：把DOM和ECMAScript想象成两个岛屿，之间通过收费桥梁连接，ECMAScript每次访问DOM就得经过这座桥并交纳过桥费；访问的次数越多，交纳的费用越高；因此推荐的做法就是尽量减少访问的次数，并努力待在ECMAScript岛上。</strong>\”</em><br><a id="more"></a></p>
 <h4 id="1-DOM访问与修改"><a href="#1-DOM访问与修改" class="headerlink" title="1 DOM访问与修改"></a>1 DOM访问与修改</h4><p>访问DOM元素时有代价的，即\”过桥费\”，修改DOM元素的代价更加昂贵，因为会导致浏览器的重排(reflow)与重绘(repaint);最坏的情况是在循环中访问或修改DOM元素，例如：  </p>
 <pre><code>function innerHTMLLoop() {
     for(var i = 0; i &lt; 5000; i++) {
@@ -549,15 +552,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,6 +565,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

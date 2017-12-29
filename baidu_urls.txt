@@ -1,3 +1,4 @@
+http://lizuoxing.com/relation-of-prototype-and-proto.html
 http://lizuoxing.com/Use-mongoDB-in-Webstorm.html
 http://lizuoxing.com/creation-of-objexts.html
 http://lizuoxing.com/Block-Formatting-Contex.html

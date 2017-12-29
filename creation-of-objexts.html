@@ -9,17 +9,17 @@
   <link rel="dns-prefetch" href="http://lizuoxing.com">
   <title>创建对象的五种方式 | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerson (name, age, job) &amp;#123;  var obj = new Object">
+  <meta name="description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerso">
 <meta name="keywords" content="前端,面向对对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建对象的五种方式">
 <meta property="og:url" content="http://lizuoxing.com/creation-of-objexts.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerson (name, age, job) &amp;#123;  var obj = new Object">
-<meta property="og:updated_time" content="2017-12-27T05:43:25.481Z">
+<meta property="og:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerso">
+<meta property="og:updated_time" content="2017-12-29T13:59:20.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建对象的五种方式">
-<meta name="twitter:description" content="虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerson (name, age, job) &amp;#123;  var obj = new Object">
+<meta name="twitter:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。 1 工厂模式在一个函数中封装对象的具体创建过程，如下所示12345678910function CreatePerso">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -172,7 +172,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。</p>
+        <blockquote>
+<p>说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
+</blockquote>
+<p>虽然Object 构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显的缺点：使用同一个接口创建很多对象，会产生大量的重复代码。为解决这个问题，人们开始使用工厂模式的一种变体。</p>
 <h2 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1 工厂模式"></a>1 工厂模式</h2><p>在一个函数中封装对象的具体创建过程，如下所示<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreatePerson</span> (<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">  obj.name = name;</span><br><span class="line">  obj.age = age;</span><br><span class="line">  obj.job = job;</span><br><span class="line">  obj.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>然后，我们就可以利用CreatePerson创建任意多个对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = CreatePerson(<span class="string">'张三'</span>, <span class="number">23</span>, <span class="string">'工程师'</span>)</span><br><span class="line"><span class="keyword">var</span> person2 = CreatePerson(<span class="string">'李四'</span>, <span class="number">25</span>, <span class="string">'教师'</span>)</span><br></pre></td></tr></table></figure></p>
@@ -443,15 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,6 +459,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

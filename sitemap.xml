@@ -2,51 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lizuoxing.com/Use-mongoDB-in-Webstorm.html</loc>
+    <loc>http://lizuoxing.com/relation-of-prototype-and-proto.html</loc>
     
-    <lastmod>2017-12-28T14:31:08.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lizuoxing.com/creation-of-objexts.html</loc>
-    
-    <lastmod>2017-12-27T05:43:25.481Z</lastmod>
+    <lastmod>2017-12-29T14:00:23.061Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://lizuoxing.com/Block-Formatting-Contex.html</loc>
     
-    <lastmod>2017-12-26T09:45:14.290Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript3.html</loc>
-    
-    <lastmod>2017-12-25T07:34:41.123Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript1.html</loc>
-    
-    <lastmod>2017-12-24T12:44:20.709Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript2.html</loc>
-    
-    <lastmod>2017-12-24T12:39:51.302Z</lastmod>
+    <lastmod>2017-12-29T13:59:50.296Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://lizuoxing.com/High-Performance-JavaScript.html</loc>
     
-    <lastmod>2017-12-24T12:34:04.987Z</lastmod>
+    <lastmod>2017-12-29T13:59:23.586Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lizuoxing.com/creation-of-objexts.html</loc>
+    
+    <lastmod>2017-12-29T13:59:20.005Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript1.html</loc>
+    
+    <lastmod>2017-12-29T13:58:26.470Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript2.html</loc>
+    
+    <lastmod>2017-12-29T13:58:02.780Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript3.html</loc>
+    
+    <lastmod>2017-12-29T13:58:00.230Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lizuoxing.com/Use-mongoDB-in-Webstorm.html</loc>
+    
+    <lastmod>2017-12-29T13:57:30.614Z</lastmod>
     
   </url>
   

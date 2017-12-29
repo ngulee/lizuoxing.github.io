@@ -9,21 +9,21 @@
   <link rel="dns-prefetch" href="http://lizuoxing.com">
   <title>Webstorm中MongoDB数据库GUI可视化插件的使用 | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。">
+  <meta name="description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。">
 <meta name="keywords" content="node.js,MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webstorm中MongoDB数据库GUI可视化插件的使用">
 <meta property="og:url" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。">
+<meta property="og:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。">
 <meta property="og:image" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm/step1.png">
 <meta property="og:image" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm/step2.png">
 <meta property="og:image" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm/step3.png">
 <meta property="og:image" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm/step4.png">
-<meta property="og:updated_time" content="2017-12-28T14:31:08.104Z">
+<meta property="og:updated_time" content="2017-12-29T13:57:30.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webstorm中MongoDB数据库GUI可视化插件的使用">
-<meta name="twitter:description" content="目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。">
+<meta name="twitter:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。">
 <meta name="twitter:image" content="http://lizuoxing.com/Use-mongoDB-in-Webstorm/step1.png">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
@@ -177,11 +177,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。<strong>我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。</strong><br><a id="more"></a></p>
+        <blockquote>
+<p>说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。<br>目前，关于MongoDB的GUI工具有很多，例如MongoVUE(这个工具貌似已经没有人维护了)、MongoHub(MAC专用)、RockMongo(需要搭建php服务器)，当然了还有其他的工具。<strong>我今天要和大家介绍的是WebStorm中的一个MongoDB的GUI插件，简单实用。</strong><br><a id="more"></a></p>
 <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><p>打开WebStorm，File&gt;Settings&gt;Plugins&gt;在搜索框中输入Mongo Plugin，并选中列表中出现的Mongo Plugin&gt;点击右边的Install实现安装。<br>安装步骤的图文如下：<br><img src="/Use-mongoDB-in-Webstorm/step1.png" alt="安装步骤图文"></p>
 <h2 id="2-连接数据库"><a href="#2-连接数据库" class="headerlink" title="2 连接数据库"></a>2 连接数据库</h2><p>File&gt;Settings&gt;Mongo Servers&gt;然后按照要求连接数据库，连接数据库步骤图文如下：<br><img src="/Use-mongoDB-in-Webstorm/step2.png" alt="安装步骤图文"><br><img src="/Use-mongoDB-in-Webstorm/step3.png" alt="安装步骤图文"></p>
 <h2 id="3-在WebStorm中打开数据库"><a href="#3-在WebStorm中打开数据库" class="headerlink" title="3 在WebStorm中打开数据库"></a>3 在WebStorm中打开数据库</h2><p>在WebStorm用户界面右侧点击Mongo Explorer即可看到你的数据库，双击数据库中的数据集，即可看到数据库中的数据。打开数据库图文如下：<br><img src="/Use-mongoDB-in-Webstorm/step4.png" alt="安装步骤图文"></p>
 <h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h2><p>如有写的不好的地方还请各位网友指出，祝各位使用愉快。</p>
+</blockquote>
 
       
 
@@ -268,6 +270,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/relation-of-prototype-and-proto.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          谈谈个人对JS中prototype、__proto__以及原型链的理解
+        
+      </div>
+    </a>
   
   
     <a href="/creation-of-objexts.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -406,15 +417,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,6 +430,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

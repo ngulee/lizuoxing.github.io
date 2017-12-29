@@ -4,35 +4,14 @@
 
     
   <url>
-    <loc>http://lizuoxing.com/Use-mongoDB-in-Webstorm.html</loc>
-    <lastmod>2017-12-28T14:31:08.104Z</lastmod>
+    <loc>http://lizuoxing.com/relation-of-prototype-and-proto.html</loc>
+    <lastmod>2017-12-29T14:00:23.061Z</lastmod>
     <data>
         <display>
-        <title>Webstorm中MongoDB数据库GUI可视化插件的使用</title>
-        <pubTime>2017-12-28T13:09:49.000Z</pubTime>
+        <title>谈谈个人对JS中prototype、__proto__以及原型链的理解</title>
+        <pubTime>2017-12-29T05:14:34.000Z</pubTime>
         
-        <tag>node.js</tag>
-         
-        <tag>MongoDB</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lizuoxing.com/creation-of-objexts.html</loc>
-    <lastmod>2017-12-27T05:43:25.481Z</lastmod>
-    <data>
-        <display>
-        <title>创建对象的五种方式</title>
-        <pubTime>2017-12-26T12:22:45.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>面向对对象</tag>
+        <tag>JavaScript</tag>
          
          
            
@@ -43,7 +22,7 @@
     
   <url>
     <loc>http://lizuoxing.com/Block-Formatting-Contex.html</loc>
-    <lastmod>2017-12-26T09:45:14.290Z</lastmod>
+    <lastmod>2017-12-29T13:59:50.296Z</lastmod>
     <data>
         <display>
         <title>块级格式上下文-BFC</title>
@@ -61,12 +40,12 @@
 
     
   <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript3.html</loc>
-    <lastmod>2017-12-25T07:34:41.123Z</lastmod>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript.html</loc>
+    <lastmod>2017-12-29T13:59:23.586Z</lastmod>
     <data>
         <display>
-        <title>高性能JavaScript系列之字符串(4)</title>
-        <pubTime>2017-12-25T07:19:28.000Z</pubTime>
+        <title>高性能JavaScript系列之脚本的加载与执行(1)</title>
+        <pubTime>2017-12-20T13:12:05.000Z</pubTime>
         
         <tag>前端</tag>
          
@@ -80,8 +59,27 @@
 
     
   <url>
+    <loc>http://lizuoxing.com/creation-of-objexts.html</loc>
+    <lastmod>2017-12-29T13:59:20.005Z</lastmod>
+    <data>
+        <display>
+        <title>创建对象的五种方式</title>
+        <pubTime>2017-12-26T12:22:45.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>面向对对象</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lizuoxing.com/High-Performance-JavaScript1.html</loc>
-    <lastmod>2017-12-24T12:44:20.709Z</lastmod>
+    <lastmod>2017-12-29T13:58:26.470Z</lastmod>
     <data>
         <display>
         <title>高性能JavaScript系列之DOM编程(2)</title>
@@ -100,7 +98,7 @@
     
   <url>
     <loc>http://lizuoxing.com/High-Performance-JavaScript2.html</loc>
-    <lastmod>2017-12-24T12:39:51.302Z</lastmod>
+    <lastmod>2017-12-29T13:58:02.780Z</lastmod>
     <data>
         <display>
         <title>高性能JavaScript系列之算法和流程(3)</title>
@@ -118,16 +116,35 @@
 
     
   <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript.html</loc>
-    <lastmod>2017-12-24T12:34:04.987Z</lastmod>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript3.html</loc>
+    <lastmod>2017-12-29T13:58:00.230Z</lastmod>
     <data>
         <display>
-        <title>高性能JavaScript系列之脚本的加载与执行(1)</title>
-        <pubTime>2017-12-20T13:12:05.000Z</pubTime>
+        <title>高性能JavaScript系列之字符串(4)</title>
+        <pubTime>2017-12-25T07:19:28.000Z</pubTime>
         
         <tag>前端</tag>
          
         <tag>Javascript性能</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lizuoxing.com/Use-mongoDB-in-Webstorm.html</loc>
+    <lastmod>2017-12-29T13:57:30.614Z</lastmod>
+    <data>
+        <display>
+        <title>Webstorm中MongoDB数据库GUI可视化插件的使用</title>
+        <pubTime>2017-12-28T13:09:49.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+        <tag>MongoDB</tag>
          
          
            
