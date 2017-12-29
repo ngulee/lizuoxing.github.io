@@ -9,17 +9,17 @@
   <link rel="dns-prefetch" href="http://lizuoxing.com">
   <title>高性能JavaScript系列之字符串(4) | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越">
+  <meta name="description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂">
 <meta name="keywords" content="前端,Javascript性能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高性能JavaScript系列之字符串(4)">
 <meta property="og:url" content="http://lizuoxing.com/High-Performance-JavaScript3.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越">
-<meta property="og:updated_time" content="2017-12-29T13:58:00.230Z">
+<meta property="og:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂">
+<meta property="og:updated_time" content="2017-12-29T14:13:35.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高性能JavaScript系列之字符串(4)">
-<meta name="twitter:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越">
+<meta name="twitter:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -173,7 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
+<p>说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
 </blockquote>
 <p><em>几乎所有的JavaScript程序都与字符串操作密切相关。例如，许多应用使用Ajax从服务端获取字符串，并把这些字符串转化为更易用的JavaScript对象，然后由这些数据生成HTML字符串。一些典型的应用程序通常需要处理大量类似合并、分割、重新排序、搜索、比那里等字符串操作。随着web应用越来越复杂，越来越多的类似任务会在浏览器中完成。</em><br><em>在JavaScript中，正则表达式时必不可少的，它的重要性远远超过哪些琐碎的字符串处理。</em><br><em>By Steven Levithan</em> </p>
 <a id="more"></a>
@@ -469,11 +469,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>

@@ -9,17 +9,17 @@
   <link rel="dns-prefetch" href="http://lizuoxing.com">
   <title>高性能JavaScript系列之算法和流程(3) | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性能的">
+  <meta name="description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性">
 <meta name="keywords" content="前端,Javascript性能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高性能JavaScript系列之算法和流程(3)">
 <meta property="og:url" content="http://lizuoxing.com/High-Performance-JavaScript2.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性能的">
-<meta property="og:updated_time" content="2017-12-29T13:58:02.780Z">
+<meta property="og:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性">
+<meta property="og:updated_time" content="2017-12-29T14:13:28.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高性能JavaScript系列之算法和流程(3)">
-<meta name="twitter:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性能的">
+<meta name="twitter:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -173,7 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
+<p>说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
 </blockquote>
 <p><em>代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。</em></p>
 <h3 id="1-循环"><a href="#1-循环" class="headerlink" title="1 循环"></a>1 循环</h3><p>循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性能的关注点之一；<br><a id="more"></a></p>
@@ -578,11 +578,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
