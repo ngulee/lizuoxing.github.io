@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="李作兴个人博客">
 <meta property="og:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    在JavaScript中，创建对象的方式有很多种，例如，Object构造函数、字面量法、工厂模式，自定义构造函数模式，原型模式，动态原型模式等等。但是，上面这几种方式总结起来，本质只有一个，就是都是通过new关键字实现创建新的对象实例。通过new关键字创建的对象实例，它们都会有一个[[prototyp">
 <meta property="og:image" content="http://lizuoxing.com/relation-of-prototype-and-proto/prototype.png">
-<meta property="og:updated_time" content="2017-12-29T14:00:23.061Z">
+<meta property="og:updated_time" content="2017-12-29T14:01:30.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈个人对JS中prototype、__proto__以及原型链的理解">
 <meta name="twitter:description" content="说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    在JavaScript中，创建对象的方式有很多种，例如，Object构造函数、字面量法、工厂模式，自定义构造函数模式，原型模式，动态原型模式等等。但是，上面这几种方式总结起来，本质只有一个，就是都是通过new关键字实现创建新的对象实例。通过new关键字创建的对象实例，它们都会有一个[[prototyp">
@@ -177,7 +177,7 @@
         <blockquote>
 <p>说明：文中对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  </p>
 </blockquote>
-<p>在<strong>JavaScript</strong>中，创建对象的方式有很多种，例如，<strong>Object</strong>构造函数、字面量法、工厂模式，自定义构造函数模式，原型模式，动态原型模式等等。但是，上面这几种方式总结起来，本质只有一个，就是都是通过<strong>new</strong>关键字实现创建新的对象实例。<br>通过<strong>new</strong>关键字创建的对象实例，它们都会有一个[[prototype]]属性，在现代浏览器中，我们可以通过<strong>proto</strong>来访问[[prototype]]这个内部属性。</p>
+<p>在<strong>JavaScript</strong>中，创建对象的方式有很多种，例如，<strong>Object</strong>构造函数、字面量法、工厂模式，自定义构造函数模式，原型模式，动态原型模式等等。但是，上面这几种方式总结起来，本质只有一个，就是都是通过<strong>new</strong>关键字实现创建新的对象实例。<br>通过<strong>new</strong>关键字创建的对象实例，它们都会有一个[[prototype]]属性，在现代浏览器中，我们可以通过<strong>proto</strong>来访问[[prototype]]这个内部属性。<br><a id="more"></a></p>
 <h2 id="1-prototype与proto的关系"><a href="#1-prototype与proto的关系" class="headerlink" title="1 prototype与proto的关系"></a>1 prototype与<strong>proto</strong>的关系</h2><p>下面，我通过一些代码实例来演示<strong>proto</strong>以及与对象prototype的关系。首先，我们通过自定义一个对象构造函数，并创建一个实例boxer。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">"Foo"</span>;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">12</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> boxer = <span class="keyword">new</span> Box();</span><br></pre></td></tr></table></figure></p>
 <p>任意一个由Box构造函数创建的对象实例，都有一个[[prototype]]属性，我们通过<strong>proto</strong>来访问其指向：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boxer.__proto__ == Box.prototype           <span class="comment">//true</span></span><br><span class="line">Box.__proto__ == <span class="built_in">Function</span>.prototype        <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.__proto__ == <span class="built_in">Function</span>.prototype   <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
 <p>从上面三个等式我们可以看出，boxer和Box的[[prototype]]属性都指向其构造函数的原型对象，但是Function的[[prototype]]属性指向其自身的原型对象。<br>因为每一个实例对象都有一个[[prototype]]属性，所以，Box原型对象、Function的原型对象也是对象的实例，也有[[prototype]]属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Box.prototype.__proto__ == <span class="built_in">Object</span>.prototype        <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.__proto__ == <span class="built_in">Object</span>.prototype   <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
@@ -407,11 +407,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,11 +423,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
               </li>
             
             <div class="clearfix"></div>
