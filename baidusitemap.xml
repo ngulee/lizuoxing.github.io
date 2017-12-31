@@ -5,12 +5,14 @@
     
   <url>
     <loc>http://lizuoxing.com/jsonp.html</loc>
-    <lastmod>2017-12-31T08:32:31.461Z</lastmod>
+    <lastmod>2017-12-31T09:05:38.841Z</lastmod>
     <data>
         <display>
-        <title>jsonp</title>
+        <title>JSONP实现跨域获取数据</title>
         <pubTime>2017-12-31T08:32:31.000Z</pubTime>
         
+        <tag>JavaScript</tag>
+         
          
            
         </display>
