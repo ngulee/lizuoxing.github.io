@@ -4,6 +4,40 @@
 
     
   <url>
+    <loc>http://lizuoxing.com/jsonp.html</loc>
+    <lastmod>2017-12-31T08:32:31.461Z</lastmod>
+    <data>
+        <display>
+        <title>jsonp</title>
+        <pubTime>2017-12-31T08:32:31.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lizuoxing.com/High-Performance-JavaScript.html</loc>
+    <lastmod>2017-12-31T01:48:08.720Z</lastmod>
+    <data>
+        <display>
+        <title>高性能JavaScript系列之脚本的加载与执行(1)</title>
+        <pubTime>2017-12-20T13:12:05.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+        <tag>Javascript性能</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lizuoxing.com/High-Performance-JavaScript3.html</loc>
     <lastmod>2017-12-29T14:13:35.936Z</lastmod>
     <data>
@@ -48,25 +82,6 @@
         <display>
         <title>高性能JavaScript系列之DOM编程(2)</title>
         <pubTime>2017-12-23T04:29:34.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-        <tag>Javascript性能</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lizuoxing.com/High-Performance-JavaScript.html</loc>
-    <lastmod>2017-12-29T14:13:13.904Z</lastmod>
-    <data>
-        <display>
-        <title>高性能JavaScript系列之脚本的加载与执行(1)</title>
-        <pubTime>2017-12-20T13:12:05.000Z</pubTime>
         
         <tag>前端</tag>
          
