@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="李作兴个人博客">
 <meta property="og:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    1 同源策略由于同源策略的限制，不同源的两个页面无法实现通信。例如，如果我们我们在自己的网站通过ajax请求直接去获取获取豆瓣上（豆瓣开放平台提供的接口数据）数据，浏览器会直接报错。但是，img标签的src属性、link标签的href属性以及script标签的src属性不受同源策略的影响，JSON">
 <meta property="og:image" content="http://lizuoxing.com/jsonp/res.png">
-<meta property="og:updated_time" content="2017-12-31T09:05:38.841Z">
+<meta property="og:updated_time" content="2017-12-31T09:11:42.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSONP实现跨域获取数据">
 <meta name="twitter:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。    1 同源策略由于同源策略的限制，不同源的两个页面无法实现通信。例如，如果我们我们在自己的网站通过ajax请求直接去获取获取豆瓣上（豆瓣开放平台提供的接口数据）数据，浏览器会直接报错。但是，img标签的src属性、link标签的href属性以及script标签的src属性不受同源策略的影响，JSON">
@@ -177,7 +177,7 @@
         <blockquote>
 <p>说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  </p>
 </blockquote>
-<h2 id="1-同源策略"><a href="#1-同源策略" class="headerlink" title="1 同源策略"></a>1 同源策略</h2><p>由于<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener"><strong>同源策略</strong></a>的限制，不同源的两个页面无法实现通信。例如，如果我们我们在自己的网站通过ajax请求直接去获取获取豆瓣上（<a href="https://developers.douban.com/wiki/?title=api_v2" target="_blank" rel="noopener">豆瓣开放平台</a>提供的接口数据）<a href="https://api.douban.com/v2/book/search?q=javascript&amp;count=1" target="_blank" rel="noopener">数据</a>，浏览器会直接报错。但是，img标签的src属性、link标签的href属性以及script标签的src属性不受同源策略的影响，JSONP正是利用这用技术来实现跨域获取数据的。</p>
+<h2 id="1-同源策略"><a href="#1-同源策略" class="headerlink" title="1 同源策略"></a>1 同源策略</h2><p>由于<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener"><strong>同源策略</strong></a>的限制，不同源的两个页面无法实现通信。例如，如果我们我们在自己的网站通过ajax请求直接去获取获取豆瓣上（<a href="https://developers.douban.com/wiki/?title=api_v2" target="_blank" rel="noopener">豆瓣开放平台</a>提供的接口数据）<a href="https://api.douban.com/v2/book/search?q=javascript&amp;count=1" target="_blank" rel="noopener">数据</a>，浏览器会直接报错。但是，img标签的src属性、link标签的href属性以及script标签的src属性不受同源策略的影响，JSONP正是利用这用技术来实现跨域获取数据的。<br><a id="more"></a></p>
 <h2 id="2-JSONP"><a href="#2-JSONP" class="headerlink" title="2 JSONP"></a>2 JSONP</h2><p>概念：Jsonp(JSON with Padding) 是 json 的一种”使用模式”，可以让网页从别的域名（网站）那获取资料，即跨域读取数据。<br>原理：JSONP实现跨域请求的原理，就是利用script标签不受同源策略的限制，通过动态创建script标签，然后利用script标签的src属性实现跨域请求。<br>下面是采用JavaScript原生实现的JSONP跨域请求：<br>html代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">value</span>=<span class="string">"发送JSONP"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>index.js页面代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</span><br><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">        </span><br><span class="line">        script.src = <span class="string">"https://api.douban.com/v2/book/search?q=javascript&amp;count=3&amp;callback=getBooks"</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.insertBefore(script, <span class="built_in">document</span>.body.firstChild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBooks</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>点击发送JSONP按钮，在控制台查看，跨域获取数据成功，返回的数据如下图所示：<br><img src="/jsonp/res.png" alt=""></p>
@@ -407,6 +407,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
@@ -415,15 +419,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Javascript性能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">面向对对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
