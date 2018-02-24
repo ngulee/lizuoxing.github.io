@@ -4,6 +4,40 @@
 
     
   <url>
+    <loc>http://lizuoxing.com/recursive-component.html</loc>
+    <lastmod>2018-02-24T15:21:11.912Z</lastmod>
+    <data>
+        <display>
+        <title>Vue中递归组件的原理以及使用</title>
+        <pubTime>2018-02-24T14:03:03.000Z</pubTime>
+        
+        <tag>vue</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lizuoxing.com/relation-of-prototype-and-proto.html</loc>
+    <lastmod>2018-02-24T14:22:53.885Z</lastmod>
+    <data>
+        <display>
+        <title>谈谈个人对JS中prototype、__proto__以及原型链的理解</title>
+        <pubTime>2017-12-29T05:14:34.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lizuoxing.com/jsonp.html</loc>
     <lastmod>2018-01-29T09:41:24.402Z</lastmod>
     <data>
@@ -126,23 +160,6 @@
         <tag>前端</tag>
          
         <tag>CSS</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lizuoxing.com/relation-of-prototype-and-proto.html</loc>
-    <lastmod>2017-12-29T14:12:31.312Z</lastmod>
-    <data>
-        <display>
-        <title>谈谈个人对JS中prototype、__proto__以及原型链的理解</title>
-        <pubTime>2017-12-29T05:14:34.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
          
          
            

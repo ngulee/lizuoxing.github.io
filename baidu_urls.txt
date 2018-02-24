@@ -1,3 +1,4 @@
+http://lizuoxing.com/recursive-component.html
 http://lizuoxing.com/jsonp.html
 http://lizuoxing.com/relation-of-prototype-and-proto.html
 http://lizuoxing.com/Use-mongoDB-in-Webstorm.html

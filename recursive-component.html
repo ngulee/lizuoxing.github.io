@@ -7,19 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="baidu-site-verification" content="x4ngpLVdak" />
   <link rel="dns-prefetch" href="http://lizuoxing.com">
-  <title>高性能JavaScript系列之算法和流程(3) | 李作兴个人博客</title>
+  <title>Vue中递归组件的原理以及使用 | 李作兴个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性">
-<meta name="keywords" content="前端,Javascript性能">
+  <meta name="description" content="说明：文中若对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  1 概念与原理所谓递归组件，顾名思义就是，重复利用同一个组件来渲染数据，组件在它自身的模板(template)可以递归第调用自己，但是，只有当它自身拥有name选项时才能作为递归组件调用。同时，为了防止递归组件出现死循环，所以，必须保证递归调用有终止条件。比如递归调用时使用 v-if 并最终解析为 fa">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高性能JavaScript系列之算法和流程(3)">
-<meta property="og:url" content="http://lizuoxing.com/High-Performance-JavaScript2.html">
+<meta property="og:title" content="Vue中递归组件的原理以及使用">
+<meta property="og:url" content="http://lizuoxing.com/recursive-component.html">
 <meta property="og:site_name" content="李作兴个人博客">
-<meta property="og:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性">
-<meta property="og:updated_time" content="2017-12-29T14:13:28.207Z">
+<meta property="og:description" content="说明：文中若对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  1 概念与原理所谓递归组件，顾名思义就是，重复利用同一个组件来渲染数据，组件在它自身的模板(template)可以递归第调用自己，但是，只有当它自身拥有name选项时才能作为递归组件调用。同时，为了防止递归组件出现死循环，所以，必须保证递归调用有终止条件。比如递归调用时使用 v-if 并最终解析为 fa">
+<meta property="og:image" content="http://lizuoxing.com/recursive-component/result.png">
+<meta property="og:updated_time" content="2018-02-24T15:21:11.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高性能JavaScript系列之算法和流程(3)">
-<meta name="twitter:description" content="说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。 1 循环循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性">
+<meta name="twitter:title" content="Vue中递归组件的原理以及使用">
+<meta name="twitter:description" content="说明：文中若对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。  1 概念与原理所谓递归组件，顾名思义就是，重复利用同一个组件来渲染数据，组件在它自身的模板(template)可以递归第调用自己，但是，只有当它自身拥有name选项时才能作为递归组件调用。同时，为了防止递归组件出现死循环，所以，必须保证递归调用有终止条件。比如递归调用时使用 v-if 并最终解析为 fa">
+<meta name="twitter:image" content="http://lizuoxing.com/recursive-component/result.png">
   
     <link rel="alternative" href="/atom.xml" title="李作兴个人博客" type="application/atom+xml">
   
@@ -147,20 +149,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-High-Performance-JavaScript2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-recursive-component" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      高性能JavaScript系列之算法和流程(3)
+      Vue中递归组件的原理以及使用
     </h1>
   
 
         
-        <a href="/High-Performance-JavaScript2.html" class="archive-article-date">
-  	<time datetime="2017-12-24T12:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
+        <a href="/recursive-component.html" class="archive-article-date">
+  	<time datetime="2018-02-24T14:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
 </a>
         
         
@@ -173,161 +175,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>说明：文中如有对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
+<p>说明：文中若对知识点有描述错误或不当的地方，欢迎各位网友指出，如需转载，请标明出处，谢谢。</p>
 </blockquote>
-<p><em>代码的整体结构时影响运行速度的主要原因。代码数量少不并不意味着运行速度快，代码数量多也并不意味着运行速度慢，代码的组织结构和解决具体问题的思路是影响整体运行性能的主要原因。</em></p>
-<h3 id="1-循环"><a href="#1-循环" class="headerlink" title="1 循环"></a>1 循环</h3><p>循环处理是最常见的编程模式之一，大多数的编程语言中，执行代码的时间大部分消耗在循环中，因此，如何高效实用循环是提升运行性能的关注点之一；<br><a id="more"></a></p>
-<h4 id="1-1-循环体的类型"><a href="#1-1-循环体的类型" class="headerlink" title="1.1 循环体的类型"></a>1.1 循环体的类型</h4><h5 id="1-1-1-循环的类型"><a href="#1-1-1-循环的类型" class="headerlink" title="1.1.1 循环的类型"></a>1.1.1 循环的类型</h5><p>ECMA-262标准第三版定义了JavaScript语法中的四种基本类型：for、while、do-while以及for-in循环； </p>
-<p>1）for循环    </p>
-<pre><code>for (var i = 0; i &lt; Things.length; i++) {
-    //循环主体
-}
-</code></pre><p>2）while循环    </p>
-<pre><code>var i = 0;
-while(i &lt; 10) {
-    //循环主体
-    i++;
-}
-</code></pre><p>3）do-while循环    </p>
-<pre><code>var i = 0;
-do {
-    //循环主体
-    i++;
-} while(i++ &lt; 10);
-</code></pre><p>4）for-in   </p>
-<pre><code>for(var property in object) {
-    //循环主体
-}
-</code></pre><p>在以上这四种循环体中，只有for-in循环比其他三种循环明显要慢，因为for-in循环每次迭代操作都会搜索实例和原型中的属性，会产生更多的开销，所以比其他循环要慢；除非你要迭代一个属性数量未知的对象，否则最好不要使用for-in循环；<br>在ES6中，规定了一个新的循环语句：for-of  </p>
-<p>4）for-of    </p>
-<pre><code>for(var property of object) {
-    //循环主体
-}
-</code></pre><p>相比for-in循环，for-of效率高更，而且可以用于数组的遍历；  </p>
-<h5 id="1-1-2-循环的性能"><a href="#1-1-2-循环的性能" class="headerlink" title="1.1.2 循环的性能"></a>1.1.2 循环的性能</h5><p>1）减少迭代的工作量<br>一次循环迭代所花时间越长，那么多次迭代就需要更多的时间，所以，限制循环中耗时操作的数量能提高循环整体的速度；<br>一个典型的数组迭代可以采用for、while、do-while中的任何一种：    </p>
-<pre><code>//原始版本
-for (var i = 0; i &lt; arr.length; i++) {
-    //处理函数processArr
-    processArr(arr[i]);
-}
-
-var j = 0;
-while(j &lt; arr.length) {
-    processArr(arr[j++]);
-}
-
-var k = 0;
-do {
-    processArr(arr[k++]);
-}while(k &lt; arr.length);    
-</code></pre><p>在上面的循环体中，每次运行循环体时都会产生如下操作：  </p>
-<ul>
-<li>在控制条件中查找一次属性(arr.length);      </li>
-<li>在控制条件中执行一次数值比较(i &lt; arr.length);</li>
-<li>一次比较操作，查看控制条件的计算结果是否为true(i &lt; arr.length == true)</li>
-<li>一次自增操作(i++);</li>
-<li>一次数组查询(arr[i]);</li>
-<li>一次函数调用processArr(arr[i]);   </li>
-</ul>
-<p>在这些循环中，运行的速度很大程度上取决于函数processArr()对每项的操作，即便如此，减少循环中操作的总次数能大幅提升运行的总体性能；<br>对于该例，可以从两个方面着手：<br><strong>减少对数组项的查找次数</strong>：上面的循环中，每次迭代都要查找一次arr.length，由于在循环的过程中，该值并不会改变，对此，我们可以把它存在一个局部变量中，然后在控制条件中使用这个局部变量；<br><strong>颠倒数组的顺序</strong>：如果数组的顺序与执行的任务无关，则可以通过颠倒数组的顺序来提升性能；  </p>
-<pre><code>//减少属性并颠倒迭代顺序
-for (var i = 0, len = arr.length; i &lt; len) {
-    //处理函数processArr
-    processArr(arr[i]);
-}
-
-var j = arr.length;
-while(j--) {
-    processArr(arr[j]);
-}
-
-var k = arr.length - 1;
-do {
-    processArr(arr[k]);
-}while(k--);    
-</code></pre><p>对比原始版本，优化后的循环有如下操作：  </p>
-<ul>
-<li>一次控制条件中的比较(i == true);</li>
-<li>一次减法操作(i–);</li>
-<li>一次数组项查找(arr[i]);</li>
-<li>一次函数调用processArr(arr[i]);   </li>
-</ul>
-<p>在新的循环体中，只对数组长度进行了一次查找，控制条件比较已经从两次(迭代数少于总数吗？它为true吗)较少到一次(它为true吗)；随着迭代次数的增加，性能会得到明显的提升；</p>
-<h3 id="2-条件语句"><a href="#2-条件语句" class="headerlink" title="2 条件语句"></a>2 条件语句</h3><p>与循环原理相似，条件表达式决定JavaScript运行流的走向；在JavaScript中有两种条件语句：if-else和switch，不同浏览器针对流程控制进行了不同优化，因此使用哪种技术和具体业务有关；    </p>
-<h4 id="2-1-if-else和switch比较"><a href="#2-1-if-else和switch比较" class="headerlink" title="2.1 if-else和switch比较"></a>2.1 if-else和switch比较</h4><p>是使用if-else还是switch，最流程的方法是根据测试条件的数量来判断：条件数量少，倾向于使用if-else，反之，倾向于使用switch；这通常归结代码的易读性，当条件数量少时if-else更易读，条件数量多时switch更易读；<br>事实证明，switch要比if-else运行得更快，但是只有在条件数量很大时才会明显；这个量语句的主要区别是，当条件数量增加时，if-else性能负担增加的程度比switch更多；<br>通常来说，if-else语句适用于两个离散值或几个不同值域的判断，当判断多于两个离散值时，switch语句更加合适；  </p>
-<h5 id="2-1-1-优化if-else"><a href="#2-1-1-优化if-else" class="headerlink" title="2.1.1 优化if-else"></a>2.1.1 优化if-else</h5><p>优化if-else的目标是：最小化达到正确分支前的所需判断条件的数量，最简单的方法是，把最可能出现的条件放在最前面；例如：</p>
-<pre><code>if(value &lt; 5) {
-    //代码处理
-}else if(vaule &gt;= 5 &amp;&amp; value &lt; 10) {
-    //代码处理
-}else {
-    //代码处理
-}
-</code></pre><p> 这段代码只有value &lt; 5 出现的概率最大才是最优的；if-else语句中的条件判断应该总是按照从概率最大到概率最小的的顺序排列，以保证运行的速度最快；<br> 另一个减少条件判断次数的方法是把if-else组织成一系列嵌套的if-else语句。使用单个庞大的if-else需要进行多次条件判断，通常会导致运行缓慢。例如：    </p>
-<pre><code>if(value == 0) {
-    return result0;
-}else if(value == 1 ) {
-    return result1;
-}else if(value == 2) {
-    return result2;
-}else if(value == 3) {
-    return result3;
-}else if(value == 4) {
-    return result4;
-}else if(value == 5) {
-    return result5;
-}else if(value == 6) {
-    return result6;
-}else if(value == 7) {
-    return result7;
-}else if(value == 8) {
-    return result8;
-}else if(value == 9) {
-    return result9;
-}else {
-    return result10;
-}   
-</code></pre><p>在这个条件表达式中，条件语句最多要进行10次判断，为了最小化条件判断的次数，可重写为一系列嵌套的if-else语句，比如：   </p>
-<pre><code>if(value &lt; 6) {
-    if(value &lt; 3) {
-        if(value == 0) {
-            return result0;
-        }else if( value == 1) {
-            return result1;
-        }else {
-            return result2;
-        }
-    }else {
-        if(value == 3) {
-            return result3;
-        }else if( value == 4) {
-            return result4;
-        }else {
-            return result5;
-        }
-    }
-}else {
-    if(value &lt; 8) {
-        if(value == 6) {
-            return result6;
-        }else {
-            return result7;
-        }
-    }else {
-        if(value == 8) {
-            return result8;
-        }else if( value == 9) {
-            return result9;
-        }else {
-            return result10;
-        }
-    }
-}    
-</code></pre><p>利用二分法，把值域分成一系列的区间，然后逐步缩小范围，使得重写后的if-else语句达到正确分支前的条件判断次数减少到最多只有4次；该方法适合多个值域的测试；</p>
-<h3 id="3-小结"><a href="#3-小结" class="headerlink" title="3 小结"></a>3 小结</h3><ul>
-<li>for、while、do-while循环性能特性相当；</li>
-<li>避免使用for-in循环，除非要遍历一个属性数量位置的属性；</li>
-<li>改善循环的最佳方式是减少每次迭代的运算量和循环的总次数；当在判断条件多，为离散值时，switch性能优于if-else，当判断条件少时，if-else更具可读性；</li>
+<h2 id="1-概念与原理"><a href="#1-概念与原理" class="headerlink" title="1 概念与原理"></a>1 概念与原理</h2><p>所谓递归组件，顾名思义就是，重复利用同一个组件来渲染数据，组件在它自身的模板(<code>template</code>)可以递归第调用自己，但是，只有当它自身拥有<code>name</code>选项时才能作为递归组件调用。<strong>同时，为了防止递归组件出现死循环，所以，必须保证递归调用有终止条件。比如递归调用时使用 <code>v-if</code> 并最终解析为 <code>false</code></strong>。下面，我将结合实际例子来说明递归组件的使用。</p>
+<h2 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2 使用方法"></a>2 使用方法</h2><p>例如，我们有一个需求，需要渲染一个多级菜单栏，而且，菜单栏的级数不确定，有可能只有两级，也有可能有多级。对于这样的需求，采用常规的方法难以实现，这时，可以采用递归组件的方法可以轻松实现。</p>
+<h3 id="2-1-项目搭建"><a href="#2-1-项目搭建" class="headerlink" title="2.1 项目搭建"></a>2.1 项目搭建</h3><p>首先，我们采用脚手架工具来搭建项目，我假设大家的电脑上都已经全局安装了nodejs、npm、webpack以及vue-cli。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个基于 webpack 模板的新项目</span><br><span class="line">$ vue init webpack recursive-component</span><br><span class="line"># 安装依赖，走你</span><br><span class="line">$ cd recursive-component</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-创建组件"><a href="#2-2-创建组件" class="headerlink" title="2.2 创建组件"></a>2.2 创建组件</h3><p>项目启动后，在src文件夹下创建components文件夹，在components文件夹下创建Parent.vue和Child.vue文件。<br>首先，创建递归组件，<br>Child.vue代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"tree"</span>&gt;</span><br><span class="line">    &lt;li v-<span class="keyword">for</span>=<span class="string">"(item, index) in data"</span> :key=<span class="string">"index"</span>&gt;</span><br><span class="line">      &#123;&#123;item.title&#125;&#125;</span><br><span class="line">      &lt;!-- 使用child作为递归调用自身的标签名 --&gt;</span><br><span class="line">	  &lt;!-- 为了防止递归渲染出现死循环，通过v-<span class="keyword">if</span>指令来判断item.child选项存在并且不为空数组时才满足渲染的条件，否则，递归就此终止 --&gt;</span><br><span class="line">	  &lt;!-- 将item.child作为递归数据传入递归组件，从而实现递归渲染 --&gt;</span><br><span class="line">      &lt;child :data=<span class="string">"item.child"</span> v-<span class="keyword">if</span>=<span class="string">"item.child &amp;&amp; item.child.length &gt; 0"</span>&gt;&lt;/child&gt;</span><br><span class="line">    &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/u</span>l&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ 注意，要想作为递归组件使用，必须要有name属性，因为，在&lt;template&gt;标签中递归调用时，就是使用自身的name作用标签名</span></span><br><span class="line"><span class="regexp">  name: 'child',</span></span><br><span class="line"><span class="regexp">  props: &#123;</span></span><br><span class="line"><span class="regexp">    data: &#123;</span></span><br><span class="line"><span class="regexp">      type: Array,</span></span><br><span class="line"><span class="regexp">      default () &#123;</span></span><br><span class="line"><span class="regexp">        return []</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在Parent.vue组件中调用Child.vue组件，需要注意的是，递归组件初次渲染的数据是由Parent组件传递给Child组件的，为了让所有递归具渲染具有相同的效果，我们可以利用二叉树数据结构来设计数据，代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;child :data=<span class="string">"msg"</span>&gt;&lt;/child&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> child <span class="keyword">from</span> <span class="string">'./Child.vue'</span></span><br><span class="line"><span class="keyword">const</span> mydata = [</span><br><span class="line">  &#123;</span><br><span class="line">    title: <span class="string">'1'</span>,</span><br><span class="line">    child: [</span><br><span class="line">      &#123;</span><br><span class="line">        title: <span class="string">'1.1'</span>,</span><br><span class="line">        child: [</span><br><span class="line">          &#123;</span><br><span class="line">            title: <span class="string">'1.1.1'</span>,</span><br><span class="line">            child: [</span><br><span class="line">              &#123;</span><br><span class="line">                title: <span class="string">"1.1.1.1"</span></span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            title: <span class="string">'1.1.2'</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        title: <span class="string">'1.2'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: <span class="string">'2'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: <span class="string">'3'</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'parent'</span>,</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      msg: mydata </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>最后在，在App.vue组件中调用Parent.vue组件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;h1&gt;app component&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;parent&gt;&lt;/</span>parent&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> parent <span class="keyword">from</span> <span class="string">'./components/Parent'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'app'</span>,</span><br><span class="line">  components: &#123;</span><br><span class="line">    parent</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-结果"><a href="#2-3-结果" class="headerlink" title="2.3 结果"></a>2.3 结果</h3><p>渲染结果如下：<br><img src="/recursive-component/result.png" alt="result"><br>通过递归组件的方法，不管菜单级数是否固定、菜单级数多还是少，都可以轻松解决！</p>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h2><ul>
+<li>递归组件必须有name选项，作为递归调用自身时作为标签名使用；</li>
+<li>递归渲染时必须要有终止递归的条件，防止死循环；</li>
+<li>要递归渲染的数据必须要有科学合理的结构；</li>
 </ul>
 
       
@@ -368,11 +228,7 @@ do {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javascript性能</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -428,7 +284,7 @@ do {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://lizuoxing.com/High-Performance-JavaScript2.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://lizuoxing.com/recursive-component.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -442,18 +298,9 @@ do {
   
 <nav id="article-nav">
   
-    <a href="/High-Performance-JavaScript3.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          高性能JavaScript系列之字符串(4)
-        
-      </div>
-    </a>
   
-  
-    <a href="/High-Performance-JavaScript1.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">高性能JavaScript系列之DOM编程(2)</div>
+    <a href="/jsonp.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSONP实现跨域获取数据</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -483,7 +330,7 @@ do {
   
 
   
-  <div id="SOHUCS" sid="High-Performance-JavaScript2" ></div>
+  <div id="SOHUCS" sid="recursive-component" ></div>
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

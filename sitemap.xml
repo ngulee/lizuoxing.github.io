@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lizuoxing.com/recursive-component.html</loc>
+    
+    <lastmod>2018-02-24T15:21:11.912Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lizuoxing.com/relation-of-prototype-and-proto.html</loc>
+    
+    <lastmod>2018-02-24T14:22:53.885Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lizuoxing.com/jsonp.html</loc>
     
     <lastmod>2018-01-29T09:41:24.402Z</lastmod>
@@ -47,13 +61,6 @@
     <loc>http://lizuoxing.com/Block-Formatting-Contex.html</loc>
     
     <lastmod>2017-12-29T14:12:49.504Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lizuoxing.com/relation-of-prototype-and-proto.html</loc>
-    
-    <lastmod>2017-12-29T14:12:31.312Z</lastmod>
     
   </url>
   
